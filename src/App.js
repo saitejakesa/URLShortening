@@ -1,7 +1,6 @@
 import "./App.css";
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import URLinputCode from "./URLinputCode";
-import Outputcode from "./Outputcode";
 
 function App() {
   return (
