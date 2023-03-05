@@ -1,5 +1,5 @@
 const env = {
-    apiurl: "http://localhost:9000"
+    apiurl: "https://url-shorteningbackend.vercel.app/"
 }
 
 export default env
