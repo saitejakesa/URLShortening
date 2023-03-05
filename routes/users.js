@@ -10,7 +10,7 @@ router.post('/shorturl',async(req,res)=>{
   mongoose.set("strictQuery", false);
   await mongoose.connect(dbUrl)
   const {oldURL} = req.body;
-  const baseUrl = "http://localhost:3000";
+  const baseUrl = "https://url-shorteningbackend-git-frontend-saitejakesa.vercel.app/";
   const urlCode = shortid.generate();
   try{
    let oldurl=req.body.oldURL
