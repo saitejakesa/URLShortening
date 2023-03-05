@@ -37,7 +37,7 @@ function URLinputCode() {
     }
   }
   let handleSubmit = async () => {
-    let res2 = await axios.get(`http://localhost:9000/index/${shorturl}`)
+    let res2 = await axios.get(`https://url-shorteningbackend.vercel.app/index/${shorturl}`)
     console.log(res2.data)
     setstate(res2.data)
     // window.navigator.navigate(res2.data)
