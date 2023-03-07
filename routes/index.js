@@ -12,7 +12,7 @@ router.get('/:code',async(req,res)=>{
 
     if (url !=null) {
       console.log("arrived")
-      res.json(url.oldURL);
+      return res.redirect(url.oldURL)
     } else {
       res.send({
         statusCode:404,
