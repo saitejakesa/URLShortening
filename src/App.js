@@ -9,7 +9,7 @@ function App() {
       <BrowserRouter>
       <Routes>
         <Route path='/' element={<URLinputCode/>}/>
-        <Route path='/:urlcode' element={<URLinputCode/>}/>
+        {/* <Route path='/:urlcode' element={<URLinputCode/>}/> */}
         
       </Routes>
       </BrowserRouter>

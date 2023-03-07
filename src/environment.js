@@ -1,5 +1,5 @@
 const env = {
-    apiurl: "https://url-shorteningbackend-saitejakesa.vercel.app"
+    apiurl: "http://localhost:9000"
 }
 
 export default env

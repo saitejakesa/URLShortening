@@ -8,23 +8,20 @@ import {  useNavigate, useParams} from "react-router-dom";
 
 function URLinputCode() {
   let [oldURL, seturl] = useState("");
-  let [shorturl, setshorturl] = useState("");
+  let [shortUrl, setshortUrl] = useState("");
   let [toggle, setToggle] = useState(false);
   let [message, setMessage] = useState("");
-  // let [urlCode,seturlCode]=useState("")
-  let [state,setstate]=useState("")
-  let navigate = useNavigate();
-  let params = useParams()
   let handleLogin = async () => {
     let res = await axios.post(`${env.apiurl}/users/shorturl`, {
       oldURL: oldURL,
     });
-    
-    console.log(res.data)
+    // setshortUrl(res.data.urlCode);
+    // console.log(res.data)
 
     if (res.data.statusCode === 200) {
+      console.log(res.data.url.urlCode)
       setToggle(false);
-      setshorturl(res.data.urlCode);
+      setshortUrl(res.data.url.urlCode);
       setTimeout(() => {
         setMessage("");
       }, 3000);
@@ -36,18 +33,6 @@ function URLinputCode() {
       }, 3000);
     }
   }
-  let handleSubmit = async () => {
-    let res2 = await axios.get(`https://url-shorteningbackend.vercel.app/index/${shorturl}`)
-    console.log(res2.data)
-    setstate(res2.data)
-    // window.navigator.navigate(res2.data)
-  // if (res2.data.status === 200) {
-    
-  // }
-  // else {
-  //   setMessage(res2.data.message)
-  // }
-}
 
   return (
     
@@ -73,24 +58,7 @@ function URLinputCode() {
         </Button>
       </div>
       <div>
-        <FormGroup>
-            <div className="shortening">
-          <Input
-            id="url"
-            name="url"
-            placeholder="Shortened URL"
-            type="url"
-            value={oldURL ? shorturl : ""}
-            onChange={(e)=>setshorturl(e.target.value)}
-          >
-          </Input> 
-          <Button variant="contained" color="primary" endIcon={<SendIcon /> } onClick={() => handleSubmit(shorturl)}>
-            Click Here First
-            </Button>         
-            </div>
-             
-            <a href={state}>click Here after send to navigate to full URL</a>
-        </FormGroup>
+        {shortUrl}
       </div>
       <div>
         {toggle ? <Spinner animation="border" color="primary" /> : <></>}
